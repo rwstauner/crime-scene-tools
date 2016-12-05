@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+  - IMAGE=crime-scene-tools
+
+script:
+  - docker build -t $IMAGE .
+  - docker run $IMAGE make test
