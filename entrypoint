@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]]; then
+  exec "/bin/bash"
+fi
+
+dir="$(dirname $0)"
+cmd="$1"; shift
+
+if [[ "x-$cmd" == "x-maat" ]]; then
+  exec "$dir"/ixmaat*/maat "$@"
+else
+  script="$dir/scripts/${cmd%.py}.py"
+  if [[ -e "$script" ]]; then
+    exec python "$script" "$@"
+  else
+    exec "$cmd" "$@"
+  fi
+fi

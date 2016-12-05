@@ -1,0 +1,9 @@
+.dockerignore
+.git
+.travis.yml
+README.mkdn
+
+code-maat-*
+ixmaat*
+scripts*
+*.zip
