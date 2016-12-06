@@ -2,9 +2,6 @@
 FROM java:8
 MAINTAINER Randy Stauner <randy@magnificent-tears.com>
 
-ENV APP_DIR=/usr/src/app
-WORKDIR $APP_DIR
-
 RUN apt-get update \
   && apt-get install -y \
     make \
@@ -13,9 +10,19 @@ RUN apt-get update \
     python \
   && rm -rf /var/apt/lists/*
 
+ENV CST_DIR=/usr/src/cst
+WORKDIR $CST_DIR
+
 COPY Makefile ./
 RUN make
 
 COPY entrypoint ./
 
-ENTRYPOINT ["/usr/src/app/entrypoint"]
+# Also add wrapper in $PATH to simplify running a shell in the container.
+RUN _ () { \
+    echo "#!/bin/sh" > $1; \
+    echo "exec $CST_DIR/entrypoint \"\$@\"" >> $1; \
+    chmod 0755 $1; \
+  }; _ /usr/local/bin/cst
+
+ENTRYPOINT ["/usr/src/cst/entrypoint"]
