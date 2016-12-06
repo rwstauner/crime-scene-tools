@@ -7,13 +7,26 @@ fi
 dir="$(dirname $0)"
 cmd="$1"; shift
 
-if [[ "x-$cmd" == "x-maat" ]]; then
-  exec "$dir"/ixmaat*/maat "$@"
-else
-  script="$dir/scripts/${cmd%.py}.py"
-  if [[ -e "$script" ]]; then
-    exec python "$script" "$@"
-  else
-    exec "$cmd" "$@"
-  fi
-fi
+case "$cmd" in
+  maat)
+    exec "$dir"/ixmaat*/maat "$@"
+    ;;
+
+  help)
+    echo 'available commands:'
+    {
+      echo maat
+      grep -l -E 'argv|argparse' "$dir"/scripts/*.py | sed -r 's,^.+/([^/]+)\.py$,\1,'
+      echo cloc
+    } | awk '{ print "  " $0 }'
+    ;;
+
+  *)
+    script="$dir/scripts/${cmd%.py}.py"
+    if [[ -e "$script" ]]; then
+      exec python "$script" "$@"
+    else
+      exec "$cmd" "$@"
+    fi
+    ;;
+esac
