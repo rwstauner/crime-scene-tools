@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Put our scripts at the front of the PATH.
+dir=`dirname "$0"`
+PATH="$dir:$PATH"
+
+[ $# -gt 0 ] || set -- help
+
+exec "$@"

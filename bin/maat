@@ -1,0 +1,3 @@
+#!/bin/sh
+# generated from Makefile
+exec `dirname "$0"`/../ixmaat*/maat "$@"

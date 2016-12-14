@@ -16,13 +16,6 @@ WORKDIR $CST_DIR
 COPY Makefile ./
 RUN make
 
-COPY entrypoint ./
+COPY ./bin/ ./bin/
 
-# Also add wrapper in $PATH to simplify running a shell in the container.
-RUN _ () { \
-    echo "#!/bin/sh" > $1; \
-    echo "exec $CST_DIR/entrypoint \"\$@\"" >> $1; \
-    chmod 0755 $1; \
-  }; _ /usr/local/bin/cst
-
-ENTRYPOINT ["/usr/src/cst/entrypoint"]
+ENV PATH=$CST_DIR/bin:$PATH

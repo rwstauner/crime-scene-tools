@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo 'available commands:'
+
+{
+  (cd `dirname "$0"` && ls | grep -vFx help)
+} | while read exe; do
+  echo "  $exe"
+done

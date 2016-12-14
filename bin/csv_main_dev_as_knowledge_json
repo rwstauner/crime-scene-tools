@@ -1,0 +1,3 @@
+#!/bin/sh
+# generated from Makefile
+exec python `dirname "$0"`/../scripts/csv_main_dev_as_knowledge_json.py "$@"

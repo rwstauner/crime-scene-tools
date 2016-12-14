@@ -1,0 +1,3 @@
+#!/bin/sh
+# generated from Makefile
+exec python `dirname "$0"`/../scripts/csv_as_enclosure_json.py "$@"
