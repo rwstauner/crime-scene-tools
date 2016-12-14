@@ -10,16 +10,52 @@ A collection of the tools used in the book
 - [Some python scripts](http://www.adamtornhill.com/code/crimescenetools.htm)
 - [Cloc](http://cloc.sourceforge.net/)
 
-The "entrypoint" script allows for a simpler more consistent calling style:
+Scripts are in `bin/` (which is added to `$PATH` in the docker image).
 
-It recognizes `maat`:
+## Available commands
 
-    docker run crime-scene-tools maat ...
+Available commands can be seen with `help`:
 
-As well as any of the python scripts:
+    $ docker run crime-scene-tools help
+    available commands:
+      complexity_analysis
+      cst
+      csv_as_enclosure_json
+      csv_main_dev_as_knowledge_json
+      git-maat-log
+      git_complexity_diff
+      git_complexity_trend
+      git_proximity_analysis
+      maat
+      merge_comp_freqs
 
-    docker run crime-scene-tools merge_comp_freqs ...
+- `complexity_analysis`
+    Calculates whitespace complexity of the given file.
 
-and falls back to any other tool in the PATH:
+- `cst`
+    A wrapper that ensures `bin/` is at the front of `PATH`
+    (useful in an interactive shell or outside of docker)
 
-    docker run crime-scene-tools cloc ...
+- `csv_as_enclosure_json`
+    Generates a JSON document suitable for enclosure diagrams.
+
+- `csv_main_dev_as_knowledge_json`
+    Generates a JSON document suitable for knowledge diagrams.
+
+- `git maat-log`
+    `git log` formatted for consumption by `maat`
+
+- `git_complexity_diff`
+    Calculates whitespace complexity trends over a range of revisions.
+
+- `git_complexity_trend`
+    Calculates whitespace complexity trends over a range of revisions.
+
+- `git_proximity_analysis`
+    Calculates proximity of changes recorded in the revision history.
+
+- `maat`
+    This is Code Maat, a program used to collect statistics from a VCS.
+
+- `merge_comp_freqs`
+    Require one CSV file with frequencies and one with the complexity.
