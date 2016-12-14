@@ -44,3 +44,4 @@ wrappers:
 test:
 	bin/maat --help
 	bin/complexity_analysis -h
+	PATH=`pwd`/bin:$$PATH git maat-log -n 1
