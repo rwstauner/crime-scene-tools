@@ -8,4 +8,4 @@ env:
 
 script:
   - docker build -t $IMAGE .
-  - docker run $IMAGE -v $PWD:/src -w /src make test
+  - docker run -v $PWD:/src -w /src $IMAGE make test
