@@ -30,32 +30,42 @@ Available commands can be seen with `help`:
       merge_comp_freqs
 
 - `complexity_analysis`
+
     Calculates whitespace complexity of the given file.
 
 - `cst`
+
     A wrapper that ensures `bin/` is at the front of `PATH`
     (useful in an interactive shell or outside of docker)
 
 - `csv_as_enclosure_json`
+
     Generates a JSON document suitable for enclosure diagrams.
 
 - `csv_main_dev_as_knowledge_json`
+
     Generates a JSON document suitable for knowledge diagrams.
 
 - `git maat-log`
+
     `git log` formatted for consumption by `maat`
 
 - `git_complexity_diff`
+
     Calculates whitespace complexity trends over a range of revisions.
 
 - `git_complexity_trend`
+
     Calculates whitespace complexity trends over a range of revisions.
 
 - `git_proximity_analysis`
+
     Calculates proximity of changes recorded in the revision history.
 
 - `maat`
+
     This is Code Maat, a program used to collect statistics from a VCS.
 
 - `merge_comp_freqs`
+
     Require one CSV file with frequencies and one with the complexity.
