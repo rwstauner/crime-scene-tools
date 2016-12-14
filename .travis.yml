@@ -8,4 +8,6 @@ env:
 
 script:
   - docker build -t $IMAGE .
-  - docker run -v $PWD:/src -w /src $IMAGE make test
+  # Make .git/ available for log
+  # but use the embedded working dir to get access to downloaded scripts.
+  - docker run -v $(cd bin && git rev-parse --git-dir):/usr/src/cst/.git $IMAGE make test
