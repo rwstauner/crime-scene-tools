@@ -69,3 +69,12 @@ Available commands can be seen with `help`:
 - `merge_comp_freqs`
 
     Require one CSV file with frequencies and one with the complexity.
+
+# Installation
+
+To use the scripts:
+
+- Use `docker run`
+- Or clone the repo, run `make` and then
+    - Add the `bin` dir to your `$PATH`
+    - Use the `cst` wrapper (with a shell alias, perhaps)
