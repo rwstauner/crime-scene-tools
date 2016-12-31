@@ -1,5 +1,5 @@
 [![docker hub](https://img.shields.io/badge/docker-crime--scene--tools-blue.svg)](https://hub.docker.com/r/rwstauner/crime-scene-tools)
-[![Build Status](https://travis-ci.org/rwstauner/docker-crime-scene-tools.svg?branch=master)](https://travis-ci.org/rwstauner/docker-crime-scene-tools)
+[![Build Status](https://travis-ci.org/rwstauner/crime-scene-tools.svg?branch=master)](https://travis-ci.org/rwstauner/crime-scene-tools)
 
 # Crime Scene Tools
 
